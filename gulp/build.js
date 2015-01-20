@@ -4,6 +4,8 @@ var gulp = require('gulp');
 
 var paths = gulp.paths;
 
+var serverSideHome = 'C:/dev/java/projects/work/incubator/resourceadmin-spring/src/main/resources/static/';
+
 var $ = require('gulp-load-plugins')({
   pattern: ['gulp-*', 'main-bower-files', 'uglify-save-license', 'del']
 });
@@ -81,6 +83,12 @@ gulp.task('misc', function () {
 
 gulp.task('clean', function (done) {
   $.del([paths.dist + '/', paths.tmp + '/'], done);
+});
+
+gulp.task('move', ['build'],  function () {
+  return gulp.src(paths.dist + '/**/*')
+    //.pipe(gulp.dest('C:/dev/java/projects/work/incubator/resourceadmin-spring/src/main/resources/static/'));
+    .pipe(gulp.dest(serverSideHome));
 });
 
 gulp.task('build', ['html', 'images', 'fonts', 'misc']);

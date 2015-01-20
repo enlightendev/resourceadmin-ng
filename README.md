@@ -14,7 +14,9 @@ Front end code for user admin app.
 - Protractor
 
 ## Development Process
-* initial scaffolding: http://wes.is/2015/01/13/how-to-use-yeoman-to-scaffold-your-next-web-app/
+* initial scaffolding: 
+- http://wes.is/2015/01/13/how-to-use-yeoman-to-scaffold-your-next-web-app/
+- https://github.com/Swiip/generator-gulp-angular
 
 ## Reference
 
