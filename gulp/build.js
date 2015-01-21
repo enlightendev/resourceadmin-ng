@@ -2,6 +2,8 @@
 
 var gulp = require('gulp');
 
+var del = require('del');
+
 var paths = gulp.paths;
 
 var serverSideHome = 'C:/dev/java/projects/work/incubator/resourceadmin-spring/src/main/resources/static/';
@@ -85,7 +87,18 @@ gulp.task('clean', function (done) {
   $.del([paths.dist + '/', paths.tmp + '/'], done);
 });
 
+/**
+ * build current project to create a distribution and then move to server side.
+ * reference: https://www.npmjs.com/package/del
+ */
 gulp.task('move', ['build'],  function () {
+  //first delete all existing files
+  del([serverSideHome + '/**/*'], { force: true }, function(err,deletedFiles){
+    if(deletedFiles){
+      console.log('Files deleted:', deletedFiles.join(', '));
+    }
+  });
+
   return gulp.src(paths.dist + '/**/*')
     //.pipe(gulp.dest('C:/dev/java/projects/work/incubator/resourceadmin-spring/src/main/resources/static/'));
     .pipe(gulp.dest(serverSideHome));
