@@ -23,8 +23,8 @@ angular.module('resourceadminNg', ['ngAnimate',
     $stateProvider
       .state('home', {
         url: '/',
-        templateUrl: 'app/main/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'app/dashboard/dashboard.html',
+        controller: 'DashboardController'
       })
 
       .state('employees', {

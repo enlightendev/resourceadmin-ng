@@ -68,7 +68,41 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div ui-view></div>
+
+    <!-- HEADER -->
+    <header id="header" ng-include="'components/header.html'"></header>
+    <!-- END HEADER -->
+
+    <!-- Left panel : Navigation area -->
+    <!-- Note: This width of the aside area can be adjusted through LESS variables -->
+    <aside id="left-panel"><span data-ng-include="'components/left-panel.html'"></span></aside>
+    <!-- END NAVIGATION -->
+
+    <!-- MAIN PANEL -->
+    <div id="main" role="main">
+
+      <!-- RIBBON
+      <div id="ribbon" data-ng-include="'views/partials/ribbon.html'" data-ribbon=""></div>-->
+      <!-- END RIBBON -->
+
+      <!-- MAIN CONTENT -->
+      <div id="content" data-ui-view="" class="view-animate"></div>
+      <!-- END MAIN CONTENT -->
+
+    </div>
+    <!-- END MAIN PANEL -->
+
+    <!-- PAGE FOOTER -->
+    <div class="page-footer"><span data-ng-include="'components/footer.html'"></span></div>
+    <!-- END FOOTER -->
+
+    <!-- SHORTCUT AREA : With large tiles (activated via clicking user name tag)
+    Note: These tiles are completely responsive,
+    you can add as many as you like
+    -->
+    <div id="shortcut"><span data-ng-include="'components/shortcut.html'"></span></div>
+    <!-- END SHORTCUT AREA -->
+
 
 
     <!-- build:js(src) scripts/vendor.js -->
@@ -105,6 +139,9 @@
     <script src="../bower_components/restangular/dist/restangular.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
+
+    <script src="assets/js/app.config.js"></script>
+    <script src="assets/js/app.vars.js"></script>
 
     <!-- build:js({.tmp/serve,.tmp/partials,src}) scripts/app.js -->
     <!-- inject:js -->

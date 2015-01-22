@@ -13118,7 +13118,7 @@ div.wijmo-wijmenu .wijmo-wijmenu-child .wijmo-wijmenu-text {
 .flag {
   width: 16px;
   height: 11px;
-  background: url(../img/flags/flags.png) no-repeat;
+  background: url(../assets/images/flags/flags.png) no-repeat;
   margin-top: -.18em;
   display: inline-block
 }
@@ -16284,7 +16284,7 @@ textarea.clone {
 }
 
 #extr-page .hero {
-  background-image: url(../img/gradient/login.png);
+  background-image: url(../assets/images/gradient/login.png);
   background-repeat: no-repeat;
   background-position: 0 137px;
   height: 360px;
@@ -17541,7 +17541,7 @@ html {
   margin: 0;
   padding: 0;
   min-height: 100%;
-  background: url(../img/mybg.png) #fff;
+  background: url(../assets/images/mybg.png) #fff;
   position: relative
 }
 
@@ -17549,7 +17549,7 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100%;
-  background: url(../img/mybg.png) #fff;
+  background: url(../assets/images/mybg.png) #fff;
   direction: ltr
 }
 
@@ -18760,7 +18760,7 @@ input[type=text]:focus + .input-group-addon {
 }
 
 input[type=color].ui-autocomplete-loading, input[type=date].ui-autocomplete-loading, input[type=datetime-local].ui-autocomplete-loading, input[type=datetime].ui-autocomplete-loading, input[type=email].ui-autocomplete-loading, input[type=month].ui-autocomplete-loading, input[type=number].ui-autocomplete-loading, input[type=password].ui-autocomplete-loading, input[type=search].ui-autocomplete-loading, input[type=tel].ui-autocomplete-loading, input[type=text].ui-autocomplete-loading, input[type=time].ui-autocomplete-loading, input[type=url].ui-autocomplete-loading, input[type=week].ui-autocomplete-loading {
-  background-image: url(../img/select2-spinner.gif) !important;
+  background-image: url(../assets/images/select2-spinner.gif) !important;
   background-repeat: no-repeat;
   background-position: 99% 50%;
   padding-right: 27px
@@ -19049,7 +19049,7 @@ input[type=color].ui-autocomplete-loading, input[type=date].ui-autocomplete-load
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
   font-weight: 700;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, .25);
-  background-image: url(../img/pattern/overlay-pattern.png)
+  background-image: url(../assets/images/pattern/overlay-pattern.png)
 }
 
 .progress-striped .progress-bar {

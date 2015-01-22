@@ -1,6 +1,6 @@
 'use strict';
 
 angular.module('resourceadminNg')
-  .controller('MainCtrl', function ($scope) {
+  .controller('DashboardController', function ($scope) {
     $scope.appName = 'Resource Admin Rocks';
   });

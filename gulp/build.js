@@ -71,6 +71,16 @@ gulp.task('images', function () {
     .pipe(gulp.dest(paths.dist + '/assets/images/'));
 });
 
+gulp.task('data', function () {
+  return gulp.src(paths.src + '/assets/data/**/*')
+    .pipe(gulp.dest(paths.dist + '/assets/data/'));
+});
+
+gulp.task('js', function () {
+  return gulp.src(paths.src + '/assets/js/**/*')
+    .pipe(gulp.dest(paths.dist + '/assets/js/'));
+});
+
 gulp.task('fonts', function () {
   return gulp.src($.mainBowerFiles())
     .pipe($.filter('**/*.{eot,svg,ttf,woff}'))
@@ -91,16 +101,18 @@ gulp.task('clean', function (done) {
  * build current project to create a distribution and then move to server side.
  * reference: https://www.npmjs.com/package/del
  */
-gulp.task('move', [],  function () {
+gulp.task('remove', [],  function () {
   //first delete all existing files
   del([serverSideHome + '/**/*'], { force: true }, function(err,deletedFiles){
     if(deletedFiles){
       console.log('Files deleted:', deletedFiles.join(', '));
     }
   });
+});
 
+gulp.task('move', [],  function () {
   return gulp.src(paths.dist + '/**/*')
     .pipe(gulp.dest(serverSideHome));
 });
 
-gulp.task('build', ['html', 'images', 'fonts', 'misc']);
+gulp.task('build', ['html', 'images', 'data', 'js', 'fonts', 'misc']);

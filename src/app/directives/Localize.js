@@ -17,7 +17,7 @@ angular.module('resourceadminNg')
                     })
             },
             getLangUrl: function (lang) {
-                return 'data/langs/' + lang.langCode + '.js';
+                return 'assets/data/langs/' + lang.langCode + '.json';
             },
 
             localizeText: function (sourceText) {
