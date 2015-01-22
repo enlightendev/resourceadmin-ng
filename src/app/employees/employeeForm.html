@@ -1,0 +1,214 @@
+<form name="employeeForm" novalidate class="form-horizontal">
+
+    <fieldset>
+        <legend>Default data</legend>
+        <div class="form-group">
+            <label for="username" class="col-md-2 control-label">Username:</label>
+
+            <div class="col-md-10">
+                <input name="username"
+                       class="form-control"
+                       ng-model="currentEmployee.username"
+                       id="username"
+                       placeholder="username format is first 2 initials last 4 social"
+                       ng-minlength=6
+                       ng-maxlength=6
+                       required/>
+
+                <div class="error" ng-show="employeeForm.username.$dirty && employeeForm.username.$invalid">
+                    <small class="error" ng-show="employeeForm.username.$error.required"> Username is required.</small>
+                    <small class="error" ng-show="employeeForm.username.$error.minlength">
+                        Your name is required to be at least 6 characters
+                    </small>
+                    <small class="error" ng-show="employeeForm.username.$error.maxlength">
+                        Your name cannot be longer than 6 characters
+                    </small>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="password" class="col-md-2 control-label">Password:</label>
+
+            <div class="col-md-10">
+                <input name="password" class="form-control" ng-model="currentEmployee.password" required id="password"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="fname" class="col-md-2 control-label">First Name:</label>
+
+            <div class="col-md-10">
+                <input name="fname" class="form-control" ng-model="currentEmployee.fname" required id="fname"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="lname" class="col-md-2 control-label">Last Name:</label>
+
+            <div class="col-md-10">
+                <input name="lname" class="form-control" ng-model="currentEmployee.lname" required id="lname"/>
+            </div>
+        </div>
+        <hr/>
+    </fieldset>
+
+    <fieldset>
+        <tabset>
+
+            <tab heading="Contact Info">
+
+                <div class="form-group">
+                    <label for="email" class="col-md-2 control-label">email:</label>
+
+                    <div class="col-md-10">
+                        <input type="email" name="email" class="form-control" ng-model="currentEmployee.email" required
+                               id="email"/>
+
+                        <div class="error" ng-show="employeeForm.email.$dirty && employeeForm.email.$invalid">
+                            <small class="error" ng-show="employeeForm.email.$error.required"> email is required.
+                            </small>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phoneHome" class="col-md-2 control-label">Phone - Home:</label>
+
+                    <div class="col-md-10">
+                        <input name="phoneHome" class="form-control" ng-model="currentEmployee.phoneHome"
+                               id="phoneHome"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phoneCell" class="col-md-2 control-label">Phone - Cell:</label>
+
+                    <div class="col-md-10">
+                        <input name="phoneCell" class="form-control" ng-model="currentEmployee.phoneCell"
+                               id="phoneCell"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phoneOffice" class="col-md-2 control-label">Phone - Office:</label>
+
+                    <div class="col-md-10">
+                        <input name="phoneOffice" class="form-control" ng-model="currentEmployee.phoneOffice"
+                               id="phoneOffice"/>
+                    </div>
+                </div>
+
+            </tab>
+
+            <tab heading="Organizational">
+
+                <div class="form-group">
+                    <label for="title" class="col-md-2 control-label">Title:</label>
+
+                    <div class="col-md-10">
+                        <input name="title" class="form-control" ng-model="currentEmployee.title" required id="title"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="department" class="col-md-2 control-label">Department:</label>
+
+                    <div class="col-md-10">
+
+                        <select name="department"
+                                class="form-control"
+                                ng-model="currentEmployee.department"
+                                ng-options="department.name as department.name for department in departments"
+                                id="department" required></select>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="isManager" class="col-md-2 control-label">Is a manager:</label>
+
+                    <div class="col-md-10">
+                        <input name="isManager" type="checkbox" ng-true-value="1" ng-false-value="0"
+                               ng-checked="currentEmployee.isManager == 1"
+                               ng-model="currentEmployee.isManager" id="isManager"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="reportsTo" class="col-md-2 control-label">Reports To:</label>
+
+                    <div class="col-md-10">
+                        <select name="reportsTo" class="form-control"
+                                ng-model="currentEmployee.managerId"
+                                ng-options="manager.id as getFullNameAndEmail(manager) for manager in managers"
+                                id="reportsTo" required></select>
+                    </div>
+                </div>
+            </tab>
+
+
+            <tab heading="Dates">
+
+                <div class="form-group">
+                    <label for="hireDate" class="col-md-2 control-label">Hire Date: {{format}}</label>
+
+                    <div class="col-md-10">
+                        <datepicker name="hireDate"
+                                    ng-model="currentEmployee.hireDate"
+                                    min-date="minDate" show-weeks="true"
+                                    class=""
+                                    id="hireDate" required>
+
+                        </datepicker>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="terminationDate" class="col-md-2 control-label">Termination Date</label>
+
+                    <div class="col-md-10">
+                        <datepicker name="terminationDate"
+                                    ng-model="currentEmployee.terminationDate"
+                                    min-date="minDate"
+                                    show-weeks="true"
+                                    class=""
+                                    id="terminationDate">
+
+                        </datepicker>
+                    </div>
+                </div>
+            </tab>
+
+        </tabset>
+    </fieldset>
+
+    <fieldset>
+        <div class="">
+            <div class="controls text-left">
+                <button class="btn btn-primary" ng-disabled="!employeeForm.$valid"
+                        ng-click="saveEdit(currentEmployee)">
+                    Save
+                </button>
+
+                <button class="btn btn-default" ng-click="cancelEdit()">Cancel</button>
+            </div>
+        </div>
+    </fieldset>
+
+</form>
+
+<!-- DEBUGGING
+User Model: <pre ng-bind="toJSON(currentEmployee)"></pre>
+Form: <pre ng-bind="toJSON(employeeForm)"></pre>
+
+<br />
+<strong>Form validity:</strong><br />
+<ul>
+  <li><strong>employeeForm.$valid =</strong> {{employeeForm.$valid}}</li>
+  <li><strong>employeeForm.fname.$valid =</strong> {{employeeForm.fname.$valid}}</li>
+  <li><strong>employeeForm.lname.$valid =</strong> {{employeeForm.lname.$valid}}</li>
+</ul>
+-->

@@ -1,0 +1,91 @@
+<form name="applicationForm" novalidate class="form-horizontal">
+
+    <fieldset>
+        <legend>Default data</legend>
+        <div class="form-group">
+            <label for="name" class="col-md-2 control-label">Name:</label>
+
+            <div class="col-md-10">
+                <input name="name"
+                       class="form-control"
+                       ng-model="currentApplication.name"
+                       id="name"
+                       placeholder="enter an application name"
+                       ng-minlength=3
+                       ng-maxlength=20
+                       required/>
+
+                <div class="error" ng-show="applicationForm.name.$dirty && applicationForm.name.$invalid">
+                    <small class="error" ng-show="applicationForm.name.$error.required"> Name is required.</small>
+                    <small class="error" ng-show="applicationForm.name.$error.minlength">
+                        Name is required to be at least 3 characters
+                    </small>
+                    <small class="error" ng-show="applicationForm.name.$error.maxlength">
+                        Name cannot be longer than 20 characters
+                    </small>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="appType" class="col-md-2 control-label">Type:</label>
+
+            <div class="col-md-10">
+                <input name="appType" class="form-control" ng-model="currentApplication.appType" required id="appType"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="description" class="col-md-2 control-label">Description:</label>
+
+            <div class="col-md-10">
+                <input name="description" class="form-control" ng-model="currentApplication.description" required id="description"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="technicalOwner" class="col-md-2 control-label">Technical Owner:</label>
+
+            <div class="col-md-10">
+                <input name="technicalOwner" class="form-control" ng-model="currentApplication.technicalOwner" required id="technicalOwner"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="homePage" class="col-md-2 control-label">Home Page:</label>
+
+            <div class="col-md-10">
+                <input name="homePage" class="form-control" ng-model="currentApplication.homePage" required id="homePage"/>
+            </div>
+        </div>
+
+    </fieldset>
+
+    <fieldset>
+        <div class="">
+            <div class="controls text-left">
+                <button class="btn btn-primary" ng-disabled="!applicationForm.$valid"
+                        ng-click="saveEdit(currentApplication)">
+                    Save
+                </button>
+
+                <button class="btn btn-default" ng-click="cancelEdit()">Cancel</button>
+            </div>
+        </div>
+    </fieldset>
+
+</form>
+
+<!-- DEBUGGING
+User Model: <pre ng-bind="toJSON(currentApplication)"></pre>
+Form: <pre ng-bind="toJSON(applicationForm)"></pre>
+
+<br />
+<strong>Form validity:</strong><br />
+<ul>
+  <li><strong>applicationForm.$valid =</strong> {{applicationForm.$valid}}</li>
+  <li><strong>applicationForm.description.$valid =</strong> {{applicationForm.description.$valid}}</li>
+  <li><strong>applicationForm.technicalOwner.$valid =</strong> {{applicationForm.technicalOwner.$valid}}</li>
+</ul>
+-->

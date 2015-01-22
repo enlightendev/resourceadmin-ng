@@ -1,0 +1,29 @@
+
+
+.header-wrapper .application-logo {
+    font-size: 40px;
+}
+
+
+.employeeGridStyles {
+    width:100%;
+    height:300px;
+}
+
+input.ng-valid {
+    border: solid green 1px;
+}
+
+input.ng-invalid{
+    border: 1px solid red;
+}
+
+input.ng-dirty {
+    /* border: solid yellow 1px; */
+}
+
+.error {
+
+}
+
+.blue { color: blue;  }
