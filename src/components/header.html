@@ -79,10 +79,24 @@
     </ul>
 
     <!-- logout button -->
-    <div id="logout" class="btn-header transparent pull-right">
-        <span> <a href="login.html" title="Sign Out" data-action="userLogout"
-                  data-logout-msg="You can improve your security further after logging out by closing this opened browser"><i
-            class="fa fa-sign-out"></i></a> </span>
+    <div id="logout" class="btn-header transparent pull-right" ng-show="authenticated">
+        <span>
+          <a href="" title="Sign Out"
+             data-action="userLogout"
+             ng-click="logout()"
+             data-logout-msg="You can improve your security further after logging out by closing this opened browser">
+            <i class="fa fa-sign-out"></i>
+          </a>
+        </span>
+    </div>
+    <div id="login" class="btn-header transparent pull-right" ng-show="!authenticated">
+        <span>
+          <a href="" title="Sign In"
+             data-action="userLogin"
+             ng-click="login()">
+            <i class="fa fa-sign-in"></i>
+          </a>
+        </span>
     </div>
     <!-- end logout button -->
 

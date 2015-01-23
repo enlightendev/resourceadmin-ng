@@ -33,6 +33,12 @@ angular.module('resourceadminNg', ['ngAnimate',
         controller: 'EmployeesController'
       })
 
+      .state('login', {
+        url: '/login',
+        templateUrl: 'app/login/login.html'
+        //controller: don't need to specify one since logic is contained in root controller
+      })
+
       .state('applications', {
         url: '/applications',
         templateUrl: 'app/applications/applicationsMain.html',
