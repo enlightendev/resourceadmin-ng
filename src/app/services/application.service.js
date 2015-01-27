@@ -4,9 +4,9 @@
  * http://chariotsolutions.com/blog/post/angularjs-corner-using-promises-q-handle-asynchronous-calls/
  */
 angular.module('resourceadminNg')
-    .factory('ApplicationService', function ($http, baseUrlApplications, $q, $log, Restangular) {
+    .factory('ApplicationService', function ($http, $q, $log, Restangular) {
 
-        var Application = Restangular.all('applications');
+        var Application = Restangular.all('api/applications');
 
         var exports = {};
 
@@ -22,7 +22,6 @@ angular.module('resourceadminNg')
 
         exports.createApplication = function (application) {
             return Application.post(application);
-            //return $http.post(baseUrlApplications, application);
         };
 
         exports.updateApplication = function (application) {

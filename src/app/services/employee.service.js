@@ -6,7 +6,7 @@
 angular.module('resourceadminNg')
     .factory('EmployeeService', function ($http, baseUrlEmployees, $q, $log, Restangular) {
 
-        var Employee = Restangular.all('employees');
+        var Employee = Restangular.all('api/employees');
 
         var exports = {};
 
@@ -22,7 +22,6 @@ angular.module('resourceadminNg')
 
         exports.createEmployee = function (employee) {
             return Employee.post(employee);
-            //return $http.post(baseUrlEmployees, employee);
         };
 
         exports.updateEmployee = function (employee) {

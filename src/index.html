@@ -14,6 +14,7 @@
     <!-- build:css({.tmp/serve,src}) styles/vendor.css -->
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="../bower_components/fontawesome/css/font-awesome.css">
+    <link rel="stylesheet" href="../bower_components/angular-ui-grid/ui-grid.css">
 
     <!-- SmartAdmin Styles : Please note (smartadmin-production.css) was created using LESS variables -->
     <link rel="stylesheet" type="text/css" media="screen" href="styles/smartadmin-production.min.css">
@@ -145,7 +146,30 @@
 
     <!-- build:js({.tmp/serve,.tmp/partials,src}) scripts/app.js -->
     <!-- inject:js -->
-    <!-- js files will be automaticaly insert here -->
+    <script src="assets/js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
+    <script src="assets/js/plugin/sparkline/jquery.sparkline.min.js"></script>
+    <script src="assets/js/speech/voicecommand.min.js"></script>
+    <script src="assets/js/smartwidgets/jarvis.widget.min.js"></script>
+    <script src="assets/js/notification/SmartNotification.min.js"></script>
+    <script src="assets/js/app.vars.js"></script>
+    <script src="assets/js/app.config.js"></script>
+    <script src="app/ng-app.js"></script>
+    <script src="app/services/resourcePermission.service.js"></script>
+    <script src="app/services/employee.service.js"></script>
+    <script src="app/services/department.service.js"></script>
+    <script src="app/services/base64.service.js"></script>
+    <script src="app/services/application.service.js"></script>
+    <script src="app/scratch/scratch.controller.js"></script>
+    <script src="app/employees/employee.controller.js"></script>
+    <script src="app/directives/Navigation.js"></script>
+    <script src="app/directives/Main.js"></script>
+    <script src="app/directives/Localize.js"></script>
+    <script src="app/directives/EmployeeResourcesDirective.js"></script>
+    <script src="app/directives/AppVersionDirective.js"></script>
+    <script src="app/dashboard/dashboard.controller.js"></script>
+    <script src="app/applications/application.controller.js"></script>
+    <script src="components/lang.controller.js"></script>
+    <script src="app/root.controller.js"></script>
     <!-- endinject -->
 
     <!-- inject:partials -->

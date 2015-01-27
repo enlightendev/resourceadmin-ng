@@ -14,11 +14,11 @@ angular.module('resourceadminNg', ['ngAnimate',
 
   .value('version', 'BETA 0.0.1')
 
-  .constant('baseUrlEmployees', 'http://localhost:8080/employees')
-  .constant('baseUrlApplications', 'http://localhost:8080/applications')
-  .constant('baseUrlResourcePermissions', 'http://localhost:8080/resourcePermissions')
+  .constant('baseUrlEmployees', 'http://localhost:8080/api/employees')
+  .constant('baseUrlApplications', 'http://localhost:8080/api/applications')
+  .constant('baseUrlResourcePermissions', 'http://localhost:8080/api/resourcePermissions')
 
-  .config(function ($stateProvider, $urlRouterProvider, RestangularProvider, $logProvider) {
+  .config(function ($stateProvider, $urlRouterProvider, RestangularProvider, $logProvider, $httpProvider) {
 
     $stateProvider
       .state('home', {
@@ -44,10 +44,24 @@ angular.module('resourceadminNg', ['ngAnimate',
         templateUrl: 'app/applications/applicationsMain.html',
         controller: 'ApplicationsController'
       })
+
+      .state('scratch', {
+        url: '/scratch',
+        templateUrl: 'app/scratch/scratch.html',
+        controller: 'ScratchController'
+      })
     ;
+
+    var login = "user";
+    var password = 'password';
+
+    $httpProvider.defaults.headers.common['Authorization'] =  'Basic ' + login + ':' + password;
 
     RestangularProvider.setResponseInterceptor(
       function(data, operation, what) {
+
+        what = what.replace('api/','');
+
         if (operation === 'getList' && data._embedded) {
           return data._embedded[what];
         }

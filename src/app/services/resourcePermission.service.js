@@ -6,7 +6,7 @@
 angular.module('resourceadminNg')
     .factory('ResourcePermissionService', function ($http, $q, $log, baseUrlResourcePermissions, Restangular) {
 
-        var ResourcePermission = Restangular.all('resourcePermissions');
+        var ResourcePermission = Restangular.all('api/resourcePermissions');
 
         var exports = {};
 

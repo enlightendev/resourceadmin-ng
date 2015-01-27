@@ -13,7 +13,7 @@ angular.module('resourceadminNg')
 
     var authenticate = function (callback) {
 
-      $http.get('http://localhost:8080/user').success(function (data) {
+      $http.get('http://localhost:8080/api/user').success(function (data) {
         if (data.name) {
           $rootScope.authenticated = true;
         } else {
