@@ -27,6 +27,3 @@ Front end code for user admin app.
 ** bower
 ** gulp
 ** node & npm
-
-
-http://wes.is/2015/01/13/how-to-use-yeoman-to-scaffold-your-next-web-app/

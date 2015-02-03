@@ -52,11 +52,6 @@ angular.module('resourceadminNg', ['ngAnimate',
       })
     ;
 
-    var login = "user";
-    var password = 'password';
-
-    $httpProvider.defaults.headers.common['Authorization'] =  'Basic ' + login + ':' + password;
-
     RestangularProvider.setResponseInterceptor(
       function(data, operation, what) {
 
