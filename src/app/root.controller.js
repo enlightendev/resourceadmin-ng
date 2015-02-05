@@ -56,7 +56,7 @@ angular.module('resourceadminNg')
     };
 
     $scope.logout = function() {
-      $http.post('logout', {}).success(function() {
+      $http.post('http://localhost:8080/logout', {}).success(function() {
         $rootScope.authenticated = false;
         $location.path("/");
       }).error(function(data) {
