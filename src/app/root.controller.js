@@ -13,7 +13,7 @@ angular.module('resourceadminNg')
 
     var authenticate = function (callback) {
 
-      $http.get('http://localhost:8080/api/user').success(function (data) {
+      $http.get('/api/user').success(function (data) {
         if (data.name) {
           $rootScope.authenticated = true;
         } else {
@@ -34,7 +34,7 @@ angular.module('resourceadminNg')
     $scope.login = function () {
 
       //TODO: move url roots to standard location.
-      $http.post('http://localhost:8080/login', $.param($scope.credentials), {
+      $http.post('/login', $.param($scope.credentials), {
         headers: {
           "content-type": "application/x-www-form-urlencoded"
         }
@@ -56,7 +56,7 @@ angular.module('resourceadminNg')
     };
 
     $scope.logout = function() {
-      $http.post('http://localhost:8080/logout', {}).success(function() {
+      $http.post('/logout', {}).success(function() {
         $rootScope.authenticated = false;
         $location.path("/");
       }).error(function(data) {

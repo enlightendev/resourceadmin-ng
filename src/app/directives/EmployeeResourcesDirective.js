@@ -41,7 +41,7 @@ angular.module('resourceadminNg')
              * we have to do some transformation
              * @type {string}
              */
-            resourcePermission.employee = 'http://localhost:8080/employees/' + EmployeeService.getSelectedEmployee().id;
+            resourcePermission.employee = '/api/employees/' + EmployeeService.getSelectedEmployee().id;
             resourcePermission.resourceName = resourcePermission.permission.resourceName;
             resourcePermission.resourceType = resourcePermission.permission.resourceType;
             resourcePermission.permission = resourcePermission.permission.permission;

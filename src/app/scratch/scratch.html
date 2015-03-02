@@ -1,9 +1,9 @@
 {{user}}
 
 <div>
-  <p><a href="#" data-url="http://localhost:8080/api/user" onclick="$('#txtUrl').val($(this).data('url'))">user</a></p>
-  <p><a href="#" data-url="http://localhost:8080/api/applications" onclick="$('#txtUrl').val($(this).data('url'))">applications</a></p>
-  <p><a href="#" data-url="http://localhost:8080/api/employees" onclick="$('#txtUrl').val($(this).data('url'))">employees</a></p>
+  <p><a href="#" data-url="/api/user" onclick="$('#txtUrl').val($(this).data('url'))">user</a></p>
+  <p><a href="#" data-url="/api/applications" onclick="$('#txtUrl').val($(this).data('url'))">applications</a></p>
+  <p><a href="#" data-url="/api/employees" onclick="$('#txtUrl').val($(this).data('url'))">employees</a></p>
   <input type="text" id="txtUrl">
   <button id="btn">Make Request</button>
 </div>

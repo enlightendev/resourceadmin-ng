@@ -14,9 +14,9 @@ angular.module('resourceadminNg', ['ngAnimate',
 
   .value('version', 'BETA 0.0.1')
 
-  .constant('baseUrlEmployees', 'http://localhost:8080/api/employees')
-  .constant('baseUrlApplications', 'http://localhost:8080/api/applications')
-  .constant('baseUrlResourcePermissions', 'http://localhost:8080/api/resourcePermissions')
+  .constant('baseUrlEmployees', '/api/employees')
+  .constant('baseUrlApplications', '/api/applications')
+  .constant('baseUrlResourcePermissions', '/api/resourcePermissions')
 
   .config(function ($stateProvider, $urlRouterProvider, RestangularProvider, $logProvider, $httpProvider) {
 
